@@ -1,8 +1,14 @@
 <h4>Footer</h4>
 
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>NOM</mat-card-title>
-    </mat-card-header>
-    <img matCardImage src="" />
-</mat-card>
+<mat-grid-list cols="{{rooms.length}}">
+
+    <mat-grid-tile *ngFor="let room of rooms">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{room.name}}</mat-card-title>
+            </mat-card-header>
+            <img matCardImage src="/assets/images/{{room.image}}" />
+        </mat-card>
+    </mat-grid-tile>
+
+</mat-grid-list>
