@@ -1,1 +1,25 @@
-<p>login works!</p>
+<h1>Connexion</h1>
+
+<form class="frm" *ngIf="user == null; else log">
+    <mat-form-field>
+        <input matInput type="email" placeholder="Login" #email (keyup.enter)="password.focus()" />
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput type="password" placeholder="Mot de passe" #password
+            (keyup.enter)="onLogin(email.value, $event)" />
+    </mat-form-field>
+    <div>
+        <button type="button" mat-button (click)="onLogin(email.value, $event)">Se connecter</button>
+    </div>
+
+</form>
+
+<ng-template #log>
+    <div class="frm">
+        Bonjour {{user?.name}}
+        <div>
+            <button mat-button color="primary" type="button" (click)="onLogout()">Se déconnecter</button>
+        </div>
+    </div>
+</ng-template>
