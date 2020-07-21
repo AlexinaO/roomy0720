@@ -15,11 +15,19 @@ export class FooterComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        //console.log('start ngOnint');
         /*this.rooms = [
             { name: 'Pégase', image: 'Pegase.jpg' },
             { name: 'Calliope', image: 'Calliope.jpg' },
             { name: 'Uranie', image: 'Uranie.jpg' }
         ];*/
-        this.rooms = this.serv.getAllRooms();
+        //this.rooms = this.serv.getAllRooms();
+        //console.log('end ngOnint');
+
+        this.serv.getAllRooms().subscribe(
+            data => {
+                this.rooms = data;
+            }
+        );
     }
 }

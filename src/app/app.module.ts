@@ -9,6 +9,7 @@ import { MaterialModule } from './material.module';
 
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.route';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { APP_ROUTES } from './app.route';
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(APP_ROUTES),
+    HttpClientModule,
     MaterialModule,
     RoomModule
   ],
