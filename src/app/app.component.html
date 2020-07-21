@@ -1,23 +1,25 @@
 <mat-toolbar color="primary">
   <div>
     <span>{{title}}</span>
-    <a href="#" mat-button>
+    <a [routerLink]="['/home']" mat-button>
       <mat-icon>home</mat-icon>
       Accueil
     </a>
-    <a href="#" mat-button>
+    <a routerLink="/rooms/list" mat-button>
       <mat-icon>room</mat-icon>
       Salles
     </a>
-    <a href="#" mat-button>
+    <a routerLink="/rooms/add" mat-button>
       <mat-icon>add</mat-icon>
       Ajouter
     </a>
-    <a href="#" mat-button>
+    <a routerLink="/auth/login" mat-button>
       <mat-icon>locked_in</mat-icon>
       Connexion
     </a>
   </div>
 </mat-toolbar>
+
+<router-outlet></router-outlet>
 
 <app-footer></app-footer>

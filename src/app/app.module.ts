@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoomModule } from './pages/rooms/room.module';
 import { MaterialModule } from './material.module';
 
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './app.route';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { MaterialModule } from './material.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot(APP_ROUTES),
     MaterialModule,
     RoomModule
   ],
