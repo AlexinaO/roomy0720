@@ -28,6 +28,10 @@ export class RoomService {
         //return null;
     }
 
+    getRoomById(id: number): Observable<RoomModel> {
+        return this.http.get<RoomModel>(`${environment.urlRooms}/${id}`);
+    }
+
     /*toto(data:any){
         console.log(data);
     }*/
