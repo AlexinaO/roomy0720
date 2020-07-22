@@ -4,6 +4,7 @@ import { AddRoomComponent } from './pages/rooms/add-room/add-room.component';
 import { HomeComponent } from './pages/home/home/home.component';
 import { NotFoundComponent } from './pages/home/not-found/not-found.component';
 import { DetailRoomComponent } from './pages/rooms/detail-room/detail-room.component';
+import { AuthenticationGuard } from './guards/authentication.guard';
 //import { LoginComponent } from './pages/authentication/login/login.component';
 
 export const APP_ROUTES: Routes = [
@@ -12,7 +13,7 @@ export const APP_ROUTES: Routes = [
     {
         path: 'rooms', children: [
             { path: 'list', component: ListRoomComponent },
-            { path: 'add', component: AddRoomComponent },
+            { path: 'add', component: AddRoomComponent, canActivate: [AuthenticationGuard] },
             { path: 'detail/:id', component: DetailRoomComponent }
         ]
     },

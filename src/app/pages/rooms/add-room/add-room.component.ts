@@ -37,6 +37,9 @@ export class AddRoomComponent implements OnInit {
       this.serv.insert(room).subscribe(
         data => {
           this.snack.open(`La salle ${data.name} est enregistrée avec l'id ${data.id}`, 'OK', { duration: 4000, verticalPosition: 'top' });
+        },
+        err => {
+          alert(err.message);
         }
       );
     }

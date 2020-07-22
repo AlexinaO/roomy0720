@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { RoomModel } from '../models/room.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
+import { mergeMap, map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class RoomService {
@@ -26,6 +27,18 @@ export class RoomService {
 
         //console.log('return null');
         //return null;
+    }
+
+    getTopFive(): Observable<Array<RoomModel>> {
+        const obsTimer = timer(0, 10000);
+        /*obsTimer.subscribe(x => {
+            console.log('timer', x);
+        });*/
+
+        let obs = this.http.get<Array<RoomModel>>(environment.urlRooms).pipe(map(data => data.splice(0, 5)));
+
+        return obsTimer.pipe(mergeMap(() => obs));
+        //return obs;
     }
 
     getRoomById(id: number): Observable<RoomModel> {
