@@ -6,6 +6,7 @@ import { ListRoomComponent } from './list-room/list-room.component';
 import { AddRoomComponent } from './add-room/add-room.component';
 import { DetailRoomComponent } from './detail-room/detail-room.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
     imports: [
         CommonModule,
         MaterialModule,
-        RouterModule
+        RouterModule,
+        ReactiveFormsModule
     ],
     exports: [
         FooterComponent
